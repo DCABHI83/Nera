@@ -1,0 +1,290 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 96%;
+    --foreground: 0 0% 0%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 94%;
+    --secondary-foreground: 0 0% 0%;
+    --muted: 0 0% 94%;
+    --muted-foreground: 0 0% 47%;
+    --accent: 27 100% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 27 100% 50%;
+    --radius: 0.625rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-nera-bg text-foreground font-sans antialiased;
+    overflow-x: hidden;
+  }
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #EFEFEF;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #aaa;
+  }
+}
+
+@layer components {
+  .bg-grid {
+    background-image: 
+      linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  
+  .gradient-mesh {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.08;
+    pointer-events: none;
+  }
+  
+  .gradient-text {
+    background: linear-gradient(135deg, #FF6A00, #FF8C33, #FFB366);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-shift 4s ease infinite;
+  }
+  
+  .card-lift {
+    @apply transition-all duration-300;
+  }
+  .card-lift:hover {
+    @apply -translate-y-1;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.07);
+  }
+  
+  .btn-scale {
+    @apply transition-transform duration-200;
+  }
+  .btn-scale:hover {
+    @apply scale-[1.02];
+  }
+  .btn-scale:active {
+    @apply scale-[0.98];
+  }
+  
+  .nav-link {
+    @apply relative transition-opacity duration-200;
+  }
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-[-4px] left-0 w-0 h-[2px] bg-black transition-all duration-300;
+  }
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+  .nav-link:hover {
+    @apply opacity-70;
+  }
+  
+  .glow-focus {
+    @apply transition-all duration-200;
+  }
+  .glow-focus:focus {
+    @apply border-nera-accent;
+    box-shadow: 0 0 0 3px rgba(255,106,0,0.15);
+    outline: none;
+  }
+  
+  .tag {
+    @apply text-[0.65rem] tracking-[0.08em] uppercase px-2.5 py-0.5 rounded-full border border-black/5 bg-black/[0.02] text-nera-textLight transition-all duration-300 whitespace-nowrap;
+  }
+  .tag:hover {
+    @apply border-nera-accent/25 text-nera-accent bg-nera-accent/[0.04];
+  }
+  
+  .service-card {
+    @apply bg-white border border-black/5 rounded-[20px] p-8 transition-all duration-500 relative overflow-hidden;
+  }
+  .service-card:hover {
+    @apply border-black/10;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.06);
+  }
+  
+  .svc-num {
+    @apply text-[4rem] font-bold leading-none text-black/[0.03] transition-colors duration-500 absolute top-4 right-6;
+  }
+  .service-card:hover .svc-num {
+    @apply text-nera-accent/[0.18];
+  }
+  
+  .sub-item {
+    @apply text-[11px] text-[#ccc] transition-colors duration-300 py-0.5;
+  }
+  .service-card:hover .sub-item {
+    @apply text-[#aaa];
+  }
+  
+  .icon-box {
+    @apply transition-all duration-300;
+  }
+  .service-card:hover .icon-box {
+    @apply bg-nera-accent/10;
+  }
+  .service-card:hover .icon-box svg {
+    @apply text-nera-accent;
+    filter: drop-shadow(0 0 6px rgba(255,106,0,0.4));
+  }
+  
+  .pkg-card {
+    @apply bg-white border border-black/5 rounded-[20px] p-8 transition-all duration-500 relative;
+  }
+  .pkg-card:hover {
+    @apply border-black/10 -translate-y-0.5;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.06);
+  }
+  
+  .diff-card {
+    @apply bg-white border border-black/5 rounded-2xl p-7 transition-all duration-500;
+  }
+  .diff-card:hover {
+    @apply border-black/10 -translate-y-1;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.06);
+  }
+  
+  .badge-pop {
+    @apply text-[9px] tracking-[0.1em] uppercase px-2 py-0.5 rounded-full bg-nera-accent/10 text-nera-accent font-semibold;
+  }
+  .badge-new {
+    @apply text-[9px] tracking-[0.1em] uppercase px-2 py-0.5 rounded-full bg-nera-accent/10 text-nera-accent font-semibold;
+  }
+  .badge-adv {
+    @apply text-[9px] tracking-[0.1em] uppercase px-2 py-0.5 rounded-full bg-red-500/[0.06] text-red-500 font-semibold;
+  }
+  .badge-rec {
+    @apply text-[9px] tracking-[0.1em] uppercase px-2 py-0.5 rounded-full bg-blue-500/[0.06] text-blue-500 font-semibold;
+  }
+  
+  .marquee-track {
+    @apply flex;
+    animation: marquee 35s linear infinite;
+    width: max-content;
+  }
+  .marquee-track:hover {
+    animation-play-state: paused;
+  }
+  
+  .process-line {
+    @apply absolute top-7 left-0 right-0 h-0.5 bg-black/5;
+  }
+  .process-line-fill {
+    @apply h-full bg-nera-accent rounded-sm;
+    transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .step-circle {
+    @apply w-14 h-14 rounded-full bg-white border-2 border-black/10 flex items-center justify-center transition-all duration-500 relative;
+  }
+  .step-circle.active {
+    @apply bg-nera-accent border-nera-accent;
+  }
+  .step-circle.completed {
+    @apply bg-nera-accent border-nera-accent;
+  }
+  
+  .wa-float {
+  position: fixed;
+  bottom: 30px; /* sits above the WhatsApp button */
+  right: 29px;
+  background-color:#25D366; /* or use your brand color, e.g. #0084FF for blue */
+  color: white;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.wa-float:hover {
+  background-color: #1da851;
+  transform: scale(1.1);
+}
+  
+  .call-float {
+  position: fixed;
+  bottom: 100px; /* sits above the WhatsApp button */
+  right: 29px;
+  background-color: #FF7917; /* or use your brand color, e.g. #0084FF for blue */
+  color: white;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.call-float:hover {
+  background-color: #1da851;
+  transform: scale(1.1);
+}
+  .blog-img-wrapper {
+    @apply overflow-hidden;
+  }
+  .blog-img-wrapper img {
+    @apply transition-transform duration-700;
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .blog-card:hover .blog-img-wrapper img {
+    @apply scale-105;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
