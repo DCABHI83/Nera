@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion} from 'framer-motion';
 import { MessageCircle, Mail, Instagram, Loader2 } from 'lucide-react';
 import { fadeUp, fadeRight, staggerContainer } from '@/lib/animations/variants';
 import { useToast } from '@/hooks/use-toast';
@@ -74,7 +74,7 @@ export default function Contact() {
         service: '',
         message: '',
       });
-    } catch (error) {
+    } catch {
       toast({
         title: 'Error',
         description: 'Something went wrong. Please contact us directly via WhatsApp.',
