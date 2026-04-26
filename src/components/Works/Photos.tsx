@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react';
 import { motion } from 'framer-motion';
 
+
 const projects = [
   { 
     id: 1,  
@@ -93,5 +94,4 @@ const Photos = () => {
     </section>
   );
 };
-
 export default Photos;

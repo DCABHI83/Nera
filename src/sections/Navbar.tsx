@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
-import { useNavigate, useLocation, Link } from 'react-router-dom';
-
+import { useNavigate, useLocation, Link, NavLink } from 'react-router-dom';
+import logo from '../../src/assets/logo.png'
 const navLinks = [
   { href: '/services', label: 'Services' },
   { href: '/works', label: 'Our Works' },
@@ -60,12 +60,9 @@ export default function Navbar() {
         style={{ height: '70px' }}
       >
         <div className="max-w-container mx-auto h-full flex items-center justify-between px-4 sm:px-6 lg:px-8">
-          <Link to="/" className="flex items-center gap-3">
-            <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">N</span>
-            </div>
-            <span className="text-base font-bold">NERA</span>
-          </Link>
+          <NavLink to="/" className="flex items-center gap-3">
+             <img className='w-[7rem]' src={logo} alt="logo" />
+          </NavLink>
 
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (

@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
 import { Instagram, Linkedin, MessageCircle } from 'lucide-react';
 import { fadeUp, staggerContainer } from '@/lib/animations/variants';
-
+import { NavLink } from 'react-router-dom';
+import logo from '../assets/logo.png'
 const footerLinks = {
   services: [
     { label: 'Social Media', href: '#services' },
@@ -53,17 +54,9 @@ export default function Footer() {
         >
           {/* Logo & Description */}
           <motion.div variants={fadeUp} className="col-span-2 md:col-span-1">
-            <a href="#" className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">N</span>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-base font-bold tracking-tight leading-none">NERA</span>
-                <span className="text-[9px] text-nera-textLight tracking-[0.15em] uppercase leading-none mt-0.5">
-                  Digital Services
-                </span>
-              </div>
-            </a>
+            <NavLink to={'/'}  className="flex items-center gap-3">
+             <img className='w-[7rem]' src={logo} alt="logo" />
+            </NavLink>
             <p className="text-nera-textMuted text-sm mt-4 leading-relaxed">
               Your complete digital growth partner. From content to conversions.
             </p>

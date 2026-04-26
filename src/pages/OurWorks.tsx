@@ -14,7 +14,7 @@ const OurWorks = () => {
   const [activeTab, setActiveTab] = useState('photos')
 
   return (
-    <section className="max-w-container mx-auto px-4 sm:px-6 lg:px-8 pb-20 lg:pb-24">
+    <section className="max-w-container mx-auto px-4 sm:px-6 lg:px-8 pb-20 lg:pb-24 mt-5">
       
       {/* Tabs */}
       <div className="flex justify-center mb-12">
