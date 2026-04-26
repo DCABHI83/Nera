@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import  { useMemo } from 'react';
 import { motion } from 'framer-motion';
 import post1 from '../../assets/post1.png'
 import post2 from '../../assets/post2.png'
