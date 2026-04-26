@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { fadeUp, staggerContainer } from '@/lib/animations/variants'
 import { ArrowUpRight, Clock, Tag, X, ChevronLeft } from 'lucide-react'
+import { useState } from 'react'
 
 const blogs = [
   {
