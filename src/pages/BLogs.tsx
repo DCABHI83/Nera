@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import Insights from '@/sections/Insights'
 import { motion, AnimatePresence } from 'framer-motion'
 import { fadeUp, staggerContainer } from '@/lib/animations/variants'
 import { ArrowUpRight, Clock, Tag, X, ChevronLeft } from 'lucide-react'
